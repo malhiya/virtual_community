@@ -49,6 +49,7 @@ GIF created with LiceCap
 ## Notes
 
 Describe any challenges encountered while building the app or any additional context you'd like to add.
+
 I was having trouble with css for the location buttons on the main page. I asked Claude for help with this. I also had trouble making the reset.js file, which I also used Claude to help me understand the purpose of it and help me find the bugs in my code.
 
 ## License
