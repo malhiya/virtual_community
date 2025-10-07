@@ -14,14 +14,19 @@ const Locations = () => {
                 const locationsData = await LocationsAPI.getAllLocations()
                 setLocations(locationsData)
 
-                setVenueNames({venue1: locationsData[0].name, venue2: locationsData[1].name, venue3: locationsData[2].name, venue4: locationsData[3].name})
-                setListeners()
+                setVenueNames({
+                    venue1: locationsData[0]?.location || '', 
+                    venue2: locationsData[1]?.location || '', 
+                    venue3: locationsData[2]?.location || '', 
+                    venue4: locationsData[3]?.location || ''
+                })
             }
             catch (error) {
-                throw error
+                console.error('Error fetching locations:', error)
             }
         }) ()
     }, [])
+
 
     const setListeners = () => {
         const polygons = document.querySelectorAll('polygon')
@@ -41,20 +46,20 @@ const Locations = () => {
 
     return (
         <div className='available-locations'>
-            <div id='venue1button' className='venue1-button-overlay'>
-                <button>{venueNames.venue1}</button>
+            <div id='venue1button' className='venue1-button-overlay' style={{opacity: 1}}>
+                <a href='/echolounge'><button>{venueNames.venue1}</button></a>
             </div>
 
-            <div id='venue2button' className='venue2-button-overlay'>
-                <button>{venueNames.venue2}</button>
+            <div id='venue2button' className='venue2-button-overlay' style={{opacity: 1}}>
+                <a href='/houseofblues'><button>{venueNames.venue2}</button></a>
             </div>
 
-            <div id='venue3button' className='venue3-button-overlay'>
-                <button>{venueNames.venue3}</button>
+            <div id='venue3button' className='venue3-button-overlay' style={{opacity: 1}}>
+                <a href='/pavilion'><button>{venueNames.venue3}</button></a>
             </div>
 
-            <div id='venue4button' className='venue4-button-overlay'>
-                <button>{venueNames.venue4}</button>
+            <div id='venue4button' className='venue4-button-overlay' style={{opacity: 1}}>
+                <a href='/americanairlines'><button>{venueNames.venue4}</button></a>
             </div>
 
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000.32 500" xmlSpace="preserve">
